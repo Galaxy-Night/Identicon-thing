@@ -31,8 +31,8 @@ for i in range(0, size):
         if val is not 0:
             square = ImageDraw.Draw(output)
             square.rectangle((multiplier * i, multiplier * j, multiplier * (i + 1), multiplier * (j + 1)), color)
-            output.save('test.png')
+            output.save(f'{string}.png')
             square.rectangle((multiplier * (size * 2 - i - 1), multiplier * j, multiplier * (size * 2 - i),
                               multiplier * (j + 1)), color)
-            output.save('test.png')
+            output.save(f'{string}.png')
 
