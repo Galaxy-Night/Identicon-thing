@@ -25,16 +25,17 @@ hash = hashlib.sha1()
 hash.update(bytes)
 seed = int.from_bytes(hash.digest(), 'little')
 random.seed(seed)
-size = 8
+size = random.choice((2, 4))
 color = chooseColor()
+multiplier = 320/(size * 2)
 for i in range(0, size):
     for j in range(0, size * 2):
         val = random.randrange(0, 2)
         if val is not 0:
             square = ImageDraw.Draw(output)
-            square.rectangle((20 * i, 20 * j, 20 * (i + 1), 20 * (j + 1)), color)
+            square.rectangle((multiplier * i, multiplier * j, multiplier * (i + 1), multiplier * (j + 1)), color)
             output.save('test.png')
-            square.rectangle((20 * (size * 2 - i - 1), 20 * j, 20 * (size * 2 - i),
-                              20 * (j + 1)), color)
+            square.rectangle((multiplier * (size * 2 - i - 1), multiplier * j, multiplier * (size * 2 - i),
+                              multiplier * (j + 1)), color)
             output.save('test.png')
 
