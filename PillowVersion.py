@@ -1,21 +1,18 @@
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageColor
 import hashlib
 import random
 
 output = Image.new('RGB', (320, 320), color='white')
 
-#color definitions
-end = '\033[0m'
-
 
 def chooseColor():
-    red = 'red'
-    green = 'green'
-    yellow = 'yellow'
-    blue = 'blue'
-    magenta = 'magenta'
-    cyan = 'cyan'
-    default = 'black'
+    red = ImageColor.getrgb('#ff553f')
+    green = ImageColor.getrgb('#a8c023')
+    yellow = ImageColor.getrgb('#d6bf55')
+    blue = ImageColor.getrgb('#5394ec')
+    magenta = ImageColor.getrgb('#ae8abe')
+    cyan = ImageColor.getrgb('#299999')
+    default = ImageColor.getrgb('#2b2b2b')
     return random.choice((red, green, yellow, blue, magenta, cyan, default))
 
 
