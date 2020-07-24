@@ -43,15 +43,5 @@ for i in range(0, numVerticalStripes):
         translation = j * multiplier
         stripe.rectangle((0, top + translation, 320, bottom + translation), color)
         output.save(f'{string}.png')
-
-'''for i in range(0, size):
-    for j in range(0, size * 2):
-        val = random.randrange(0, 2)
-        if val is not 0:
-            square = ImageDraw.Draw(output)
-            square.rectangle((multiplier * i, multiplier * j, multiplier * (i + 1), multiplier * (j + 1)), color)
-            output.save(f'{string}.png')
-            square.rectangle((multiplier * (size * 2 - i - 1), multiplier * j, multiplier * (size * 2 - i),
-                              multiplier * (j + 1)), color)
-            output.save(f'{string}.png')'''
+output.show()
 
