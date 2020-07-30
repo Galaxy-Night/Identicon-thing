@@ -4,19 +4,18 @@ import hashlib
 import random
 
 
-def choosecolor(hue):
-    return ImageColor.getrgb(f'hsl({hue}, 50%, {random.randrange(0, 100)}%)')
+def choosecolor():
+    return ImageColor.getrgb(f'hsl({random.randrange(0, 360)}, 50%, {random.randrange(20, 80)}%)')
 
 
-def choosecolors(hue):
+def choosecolors():
     returned = []
     for i in range(0, 5):
-        returned.append(choosecolor(hue))
+        returned.append(choosecolor())
     return returned
 
 
-hue = random.randrange(0, 360)
-output = Image.new('RGB', (320, 320), color=choosecolor(hue))
+output = Image.new('RGB', (320, 320), color=choosecolor())
 string = input("Value: ")
 bytes = string.encode('utf-8')
 hash = hashlib.sha1()
@@ -24,7 +23,7 @@ hash.update(bytes)
 seed = int.from_bytes(hash.digest(), 'little')
 random.seed(seed)
 size = random.choice((2, 4))
-colors = choosecolors(hue)
+colors = choosecolors()
 multiplier = 320/(size)
 numHorizontalStripes = random.randrange(1, 5)
 for i in range(0, numHorizontalStripes):
